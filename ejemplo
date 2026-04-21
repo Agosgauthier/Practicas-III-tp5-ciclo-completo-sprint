@@ -1,0 +1,169 @@
+CICLO DE VIDA DEL SOFTWARE
+
+_SISTEMA DE PROFESORES, ALUMNOS Y CALIFICACIONES
+
+1) TOMA DE REQUERIMIENTOS (Es entender qué necesita el cliente.)
+   
+   a) Requerimientos: (lo que el sistema debe hacer)
+      _El cliente necesita un sistema para una escuela que permita:
+          *Los profesores pueden cargar calificaciones.  
+          *Los alumnos pueden ver sus calificaciones.
+          *Evitar duplicar notas del mismo alumno en la misma materia.
+          *Administrar alumnos y profesores.
+   
+   
+   b) Actores y Casos de Uso: 
+      _Actores: (quién usa el sistema)
+          *Alumno
+          *Profesor
+      
+      _Casos de uso: (acciones que pueden hacer)
+          *Registrar alumno
+          *Registrar profesor
+          *Cargar calificación
+          *Ver calificaciones
+          *Modificar calificación
+          *Eliminar calificación
+
+
+     c) Escenarios: (ejemplos de cómo funciona en la práctica)
+        _Escenario 1: (Ver calificaciones)
+           *Given: el alumno está registrado en el sistema.
+           *When: inicia sesión y accede a sus calificaciones.
+           *Then: el sistema muestra todas sus notas correctamente.
+           
+           
+        _Escenario 2: (Cargar calificacion)
+            *Given: el profesor está logueado en el sistema.
+            *When: selecciona un alumno, una materia e ingresa una nota válida.
+            *Then: el sistema guarda la calificación correctamente.
+           
+           
+        _Escenario 3: (Evitar duplicados)
+           *Given: ya existe una calificación para ese alumno en esa materia
+           *When: el profesor intenta cargar otra nota para el mismo alumno y materia.
+           *Then: el sistema rechaza la operación y muestra un mensaje de error.
+
+
+2) PLANIFICACION (Es organizar el trabajo para construir el sistema.)
+   
+    _Crear tickets: (dividir el trabajo en tareas.)
+        *Crear seccion de alumnos.
+        *Crear seccion de profesores.
+        *Crear seccion de calificaciones.
+        *Validación de notas duplicadas.
+        *Pantalla para ver notas.
+      
+    
+    _Refinar: (explicar mejor cada tarea.)
+        *Alumno: nombre, apellido, legajo.
+        *Profesor: nombre, materia.
+        *Calificación: nota, alumno, materia.
+      
+      
+    _Estimar: (calcular cuánto esfuerzo lleva cada una.)
+        *Alumnos: 2
+        *Profesores: 2
+        *Calificaciones: 3
+        *Validaciones: 2
+        *Vistas: 3
+      
+      
+    _Asignar: (repartir las tareas entre los desarrolladores.)
+       -Dev 1 → Alumnos
+       -Dev 2 → Profesores
+       -Dev 3 → Calificaciones
+
+
+3) DESARROLLO Y TESTING 
+   
+   _Desarrollo 
+       -Creación de clases: 
+          *Alumno: guarda info del alumno (nombre, apellido, dni, etc.)
+          *Profesor: guarda info del profesor 
+          *Calificación: la nota que un profesor le pone a un alumno
+       -Funcionalidades:
+          *Alta de datos (cargar info nueva)
+              Ej: agregar un alumno o cargar una nota
+          *Consulta de notas (ver las calificaciones)
+              Ej: un alumno entra y ve sus notas
+          *Validación de duplicados (evitar errores)
+              Ej: no permitir cargar dos veces la misma nota para el mismo alumno en la misma materia
+
+
+   _Tests Unitario (tipo de testing, pero enfocado en partes pequeñas.)
+      Se prueba algo puntual, aislado:
+         -una función
+         -una validación
+         -una clase
+       Ej: Verificar que no se carguen notas duplicadas, Verificar que una nota se guarde bien, etc.
+
+
+   _Vistas (funcionalidades en vistas funcionales)
+       -Pantalla de carga de notas (profesor)
+       -Pantalla de visualización (alumno)
+
+
+   _Testing QA
+      -Pruebas completas del sistema
+      -Validación de funcionamiento real
+
+
+   _Preparar todo para el despliegue a producción (Dejar el sistema listo para usar de verdad.)
+      -En mi TP:
+         *Que se puedan cargar notas 
+         *Que no haya errores 
+         *Que todo funcione bien 
+
+
+   _Crear el branch de release candidate (major.minor.commit)
+    “release candidate” = versión casi lista para entregar, pero que todavía se revisa
+    (Es hacer una copia del proyecto casi final, con un nombre de versión.)
+
+    -Ese nombre tiene este formato:
+       *major → versión grande (cambios importantes)
+       *minor → mejoras chicas
+       *commit → pequeños cambios o correcciones
+    
+    Ejemplo:
+    1.0.0 → primera versión final
+    1.1.0 → le agregaste algo nuevo
+    1.0.1 → arreglaste un error
+
+
+   _Ejecución de pipeline CI/CD
+
+      -Es un proceso automático que:
+        revisa el código
+        ejecuta tests
+        y deja todo listo para usar
+       
+       *CI (Integración Continua)
+        -Verifica que todo funcione bien.
+        -Corre los tests automáticamente.
+          
+       *CD (Entrega Continua)
+       -Deja el sistema listo para ser usado o publicado.
+
+
+4) IMPLEMENTACION / DEMO
+   -Push a rama release
+   -O Pull Request hacia release
+   
+   Demo:
+   -Carga de calificaciones
+   -Visualización de notas
+
+
+5) FEEDBACK DEL CLIENTE (Posibles mejoras)
+   -Agregar promedio automático
+   -Permitir editar notas
+   -Agregar materias
+
+
+6) NUEVO SPRINT (Nuevos requerimientos)
+    -Cálculo de promedio
+    -Filtro por materia
+    -Historial de calificaciones
+
+El ciclo vuelve a comenzar.
