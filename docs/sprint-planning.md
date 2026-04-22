@@ -9,3 +9,10 @@ Crear funcionalidades básicas del sistema.
 - Carga de notas
 - Validación de duplicados
 - Ver notas
+  
+ ## Estimación
+- Alta alumnos → Fácil
+- Alta profesores → Fácil
+- Carga notas → Media
+- Validación duplicados → Media
+- Ver notas → Fácil

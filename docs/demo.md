@@ -8,3 +8,12 @@ Se probó:
 - Ver notas
 
 Resultado: funcionamiento correcto.
+
+## Testing QA
+
+Se probó:
+- Ingreso de datos correctos
+- Detección de errores (duplicados)
+
+Resultado:
+El sistema responde correctamente ante ambos casos.
